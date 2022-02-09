@@ -1,23 +1,38 @@
 import pymunk
 
 class Segment():
-    def __init__(self, _space: pymunk.Space, _pos_start: (int, int), _pos_end: (int, int), _thickness: float = 4, _color: (int, int, int) = (255, 255, 255), _density: float = 0.1 , _elasticity: float = 0.5, _friction: float = 0.9):
+    def __init__(self,
+                 space: pymunk.Space,
+                 pos_start: (float, float),
+                 pos_end: (float, float),
+                 line_thickness: float=4.,
+                 color: (int, int, int)=(255,255,255),
+                 density: float=0.1,
+                 elasticity: float=0.5,
+                 friction: float=0.9):
 
-        self.space = _space
-        self.pos_start = _pos_start
-        self.pos_end = _pos_end
-        self.thickness = _thickness
-        
-        self.density = _density
-        self.elasticity = _elasticity
-        self.friction = _friction
+        self.space = space
+        self.pos_start = pos_start
+        self.pos_end = pos_end
+        self.thickness = line_thickness
+        self.color = color
+        self.density = density
+        self.elasticity = elasticity
+        self.friction = friction
 
-        self.shape = pymunk.Segment(self.space.static_body, self.pos_start, self.pos_end, self.thickness) 
-
-        self.color = _color
+        self.shape = pymunk.Segment(body=self.space.static_body,
+                                    a=self.pos_start,
+                                    b=self.pos_end,
+                                    radius=self.thickness)
 
         self.shape.density = self.density
         self.shape.elasticity = self.elasticity
         self.shape.friction = self.friction
 
+    def reset_elasticity(self) -> bool:
+        self.elasticity = 0.5
+        return True
+
+    def draw(self) -> bool:
         self.space.add(self.shape)
+        return True

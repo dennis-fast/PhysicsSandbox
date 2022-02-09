@@ -2,10 +2,21 @@ import pymunk
 from physics_engine.segment import Segment
 
 class Box:
-    def __init__(self, space, p0=(0, 50), p1=(800, 600), d=4):
+    def __init__(self,
+                 space,
+                 left_bottom_corner=(0,50),
+                 right_upper_corner=(800,600),
+                 line_thickness=4):
         self.space = space
-        x0, y0 = p0
-        x1, y1 = p1
-        ps = [(x0, y0), (x1, y0), (x1, y1), (x0, y1)]
+        self.pos_start = pos_start
+        self.pos_end = pos_end
+        self.ps = [(self.pos_start[0], self.pos_start[1]),
+                   (self.pos_end[0], self.pos_start[1]),
+                   (self.pos_end[0], self.pos_end[1]),
+                   (self.pos_start[0], self.pos_end[1])]
+
         for i in range(4):
-            Segment(space, ps[i], ps[(i+1) % 4], d)
+            Segment(space=space,
+                    pos_start=self.ps[i],
+                    pos_end=self.ps[(i+1) % 4],
+                    line_thickness=line_thickness)
