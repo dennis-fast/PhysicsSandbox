@@ -1,6 +1,5 @@
 import pyglet
 
-
 from sandbox import Sandbox
 
 if __name__ == '__main__':
