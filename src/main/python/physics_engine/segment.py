@@ -1,6 +1,7 @@
 import pymunk
 
-class Segment():
+
+class Segment:
     def __init__(self,
                  space: pymunk.Space,
                  pos_start: (float, float),

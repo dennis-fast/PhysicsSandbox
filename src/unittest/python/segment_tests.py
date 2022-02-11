@@ -6,9 +6,9 @@ currentdir = os.path.dirname(os.path.realpath(__file__))
 parentdir = os.path.dirname(currentdir)
 sys.path.append(parentdir)
 
-from segment import Segment
+from physics_engine.segment import Segment
 
-class TestRectangle(unittest.TestCase):
+class TestSegment(unittest.TestCase):
 
     def setUp(self):
         self.space = pymunk.Space()

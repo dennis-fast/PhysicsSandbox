@@ -1,15 +1,16 @@
 import pymunk
 
-class Circle():
+
+class Circle:
     def __init__(self,
                  space: pymunk.Space,
                  center_pos: (float, float),
-                 radius: float=15.,
-                 body_type: str='dynamic',
-                 color: (int, int, int)=(0,255,0),
-                 density: float=0.01,
-                 elasticity: float=1.,
-                 friction: float=0.9):
+                 radius: float = 15.,
+                 body_type: str = 'dynamic',
+                 color: (int, int, int) = (0, 255, 0),
+                 density: float = 0.01,
+                 elasticity: float = 1.,
+                 friction: float = 0.9):
 
         self.space = space
         self.center_pos = center_pos
@@ -37,10 +38,6 @@ class Circle():
         self.shape.density = self.density
         self.shape.elasticity = self.elasticity
         self.shape.friction = self.friction
-
-    def resize(self, _multiplier: float) -> bool:
-        self.radius = self.radius * _multiplier
-        return True
 
     def move2pos(self, _pos: (float, float)) -> bool:
         self.center_pos = _pos

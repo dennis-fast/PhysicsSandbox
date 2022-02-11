@@ -6,17 +6,13 @@ currentdir = os.path.dirname(os.path.realpath(__file__))
 parentdir = os.path.dirname(currentdir)
 sys.path.append(parentdir)
 
-from triangle import Triangle
+from physics_engine.triangle import Triangle
 
 class TestTriangle(unittest.TestCase):
 
     def setUp(self):
         self.space = pymunk.Space()
         self.tria_1 = Triangle(self.space, (10,10), size = 30, mass = 2)
-
-    def test_resize(self):
-        self.tria_1.resize(2)
-        self.assertEqual(self.tria_1.radius, 30)
 
     def test_move2pos(self):
         _pos = (150,200)

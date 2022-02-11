@@ -32,11 +32,6 @@ class Rectangle():
         self.shape.elasticity = self.elasticity
         self.shape.friction = self.friction
 
-    def resize(self, _multiplier: float) -> bool:
-        self.shape.size = self.size * _multiplier
-        self.body.mass = self.mass * _multiplier**2
-        return True
-
     def move2pos(self, _pos: (float, float)) -> bool:
         self.center_pos = _pos
         return True

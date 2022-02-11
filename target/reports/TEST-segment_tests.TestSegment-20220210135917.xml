@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="segment_tests.TestSegment-20220210135917" tests="2" file="segment_tests.py" time="0.002" timestamp="2022-02-10T13:59:17" failures="0" errors="0" skipped="0">
+	<testcase classname="segment_tests.TestSegment" name="test_draw" time="0.001" timestamp="2022-02-10T13:59:17"/>
+	<testcase classname="segment_tests.TestSegment" name="test_reset_elasticity" time="0.001" timestamp="2022-02-10T13:59:17"/>
+</testsuite>

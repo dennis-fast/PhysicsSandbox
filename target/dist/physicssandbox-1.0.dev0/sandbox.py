@@ -6,8 +6,9 @@ from pymunk.pyglet_util import DrawOptions
 
 import physics_engine as pe
 
-SCREEN_WIDTH  = 1280
+SCREEN_WIDTH = 1280
 SCREEN_HEIGHT = 720
+
 
 class Sandbox(pyglet.window.Window):
     def __init__(self):
@@ -20,7 +21,7 @@ class Sandbox(pyglet.window.Window):
         self.options = pymunk.pyglet_util.DrawOptions()
 
         self.set_mouse_visible(True)
-        self.coursor_pos = [0, 0]
+        self.cursor_pos = [0, 0]
         self.keys_pressed = {}
 
         # updates screen every 1/120 seconds -> 500 FPS
@@ -56,24 +57,21 @@ class Sandbox(pyglet.window.Window):
         self.space.debug_draw(self.options)
        
     def on_mouse_motion(self,_x: int,_y: int,_dx: int,_dy: int) -> None:
-        self.coursor_pos[0] += _dx
-        self.coursor_pos[1] += _dy
+        self.cursor_pos[0] += _dx
+        self.cursor_pos[1] += _dy
 
     def on_mouse_press(self, _x: int, _y: int,
                        _button: int, _modifiers: int) -> None:
         if _button == mouse.LEFT:
             print ("Left mouse button pressed -> generate a rectangle")
-            rec = pe.Rectangle(self.space, self.coursor_pos)
-            print(rec.size)
-            rec.resize(5)
-            print(rec.size)
+            rec = pe.Rectangle(self.space, self.cursor_pos)
             rec.draw()
             
             #self.on_mouse_motion(_x, _y, _dx, _dy)
 
         if _button == mouse.RIGHT:
             print ("Right mouse button pressed -> generate a circle")
-            pe.Circle(space=self.space, center_pos=self.coursor_pos).draw()
+            pe.Circle(space=self.space, center_pos=self.cursor_pos).draw()
             #self.on_mouse_motion(_x, _y, _dx, _dy)
 
     def on_key_press(self, _symbol: int, _modifiers: int) -> None:
@@ -81,10 +79,7 @@ class Sandbox(pyglet.window.Window):
 
         if _symbol == key.SPACE and self.keys_pressed[_symbol] == True:
             print ("The SPACEBAR was pressed -> generate a triangle")
-            tri = pe.Triangle(space=self.space, center_pos=self.coursor_pos)
-            print(tri.size)
-            tri.resize(5)
-            print(tri.size)
+            tri = pe.Triangle(space=self.space, center_pos=self.cursor_pos)
             tri.draw()
 
 
