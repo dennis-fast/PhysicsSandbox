@@ -108,9 +108,11 @@ First, I created a workspace on the platform on Built-In Node:
 I've installed Jenkins via Docker and linked the workspace to GitHub:
 [screenshot](docs/coninuous_delivery/jenkins_github_connection.png)
 
-TBD Jenkins Pipeline
+Since the build and unittests are running on PyBuilder, I only need to call **pyb** to trigger build running and notify
+me if the build is unsuccessful via e-mail: [screenshot](docs/coninuous_delivery/jenkins_pipeline.png)
 
-[Here](docs/coninuous_delivery/jenkins_successful_build.png) you can see successful build using Jenkins.
+You can see successful build using Jenkins [here](docs/coninuous_delivery/jenkins_successful_build.png).
+
 
 ### 9. Use a good **IDE** and get fluent with it as e.g. IntelliJ. What are your favorite **Key-Shortcuts**?!
   
