@@ -1,3 +1,5 @@
+from abc import ABC
+
 import pyglet
 from pyglet.window import mouse
 from pyglet.window import key
@@ -24,14 +26,20 @@ class Sandbox(pyglet.window.Window):
         self.cursor_pos = [0, 0]
         self.keys_pressed = {}
 
-        # updates screen every 1/120 seconds -> 500 FPS
-        self.fps = 120
+        # updates screen every 1/60 seconds -> 60 FPS
+        self.fps = 60
         pyglet.clock.schedule_interval(func=self.update, interval=1/self.fps)
 
         self.space = pymunk.Space()
         self.space.gravity = (0, -981/2)
         self.elasticity = 0.9
         self.friction = 0.9
+
+        line = pymunk.Segment(body=self.space.static_body,a=(0,0),b=(100,100),radius=10)
+        self.space.add(line)
+        print(self.space.shapes, self.space.bodies)
+        self.space.remove(line)
+        print(self.space.shapes, self.space.bodies)
 
         self.ground = pe.Segment(space=self.space,
                                  pos_start=(0, 100),
@@ -50,12 +58,12 @@ class Sandbox(pyglet.window.Window):
             if _shape.body.position.y < -100:
                 self.space.remove(_shape.body, _shape)
 
-    # ------------------------------------------------------------------------
-    # event handlers
     def on_draw(self) -> None:
         self.clear()
         self.space.debug_draw(self.options)
-       
+
+    # ------------------------------------------------------------------------
+    # event handlers
     def on_mouse_motion(self, _x: int, _y: int, _dx: int, _dy: int) -> None:
         self.cursor_pos[0] += _dx
         self.cursor_pos[1] += _dy
@@ -66,13 +74,10 @@ class Sandbox(pyglet.window.Window):
             print("Left mouse button pressed -> generate a rectangle")
             rec = pe.Rectangle(self.space, self.cursor_pos)
             rec.draw()
-            
-            # self.on_mouse_motion(_x, _y, _dx, _dy)
 
         if _button == mouse.RIGHT:
             print("Right mouse button pressed -> generate a circle")
             pe.Circle(space=self.space, center_pos=self.cursor_pos).draw()
-            # self.on_mouse_motion(_x, _y, _dx, _dy)
 
     def on_key_press(self, _symbol: int, _modifiers: int) -> None:
         self.keys_pressed[_symbol] = True
