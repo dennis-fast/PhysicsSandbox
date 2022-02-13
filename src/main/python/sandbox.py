@@ -50,12 +50,12 @@ class Sandbox(pyglet.window.Window):
             if _shape.body.position.y < -100:
                 self.space.remove(_shape.body, _shape)
 
-    # ------------------------------------------------------------------------
-    # event handlers
     def on_draw(self) -> None:
         self.clear()
         self.space.debug_draw(self.options)
-       
+
+    # ------------------------------------------------------------------------
+    # event handlers
     def on_mouse_motion(self, _x: int, _y: int, _dx: int, _dy: int) -> None:
         self.cursor_pos[0] += _dx
         self.cursor_pos[1] += _dy
