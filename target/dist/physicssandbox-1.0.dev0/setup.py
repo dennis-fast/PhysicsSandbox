@@ -51,7 +51,7 @@ if __name__ == '__main__':
         entry_points = {},
         data_files = [],
         package_data = {},
-        install_requires = [],
+        install_requires = ['plantuml'],
         dependency_links = [],
         zip_safe = True,
         cmdclass = {'install': install},

@@ -6,12 +6,11 @@ class Segment:
                  space: pymunk.Space,
                  pos_start: (float, float),
                  pos_end: (float, float),
-                 line_thickness: float=4.,
-                 color: (int, int, int)=(255,255,255),
-                 density: float=0.1,
-                 elasticity: float=0.5,
-                 friction: float=0.9):
-
+                 line_thickness: float = 4.,
+                 color: (int, int, int) = (255, 255, 255),
+                 density: float = 0.1,
+                 elasticity: float = 0.5,
+                 friction: float = 0.9):
         self.space = space
         self.pos_start = pos_start
         self.pos_end = pos_end

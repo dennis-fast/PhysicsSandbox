@@ -1,0 +1,117 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+package "Physics Engine" #DDDDDD {
+  class Rectangle
+  class Triangle
+  class Circle
+  class Segment
+  class Box
+}
+
+class Triangle {
+pymunk.Space space
+[float, float] center_pos
+float size = 20
+float mass = 1
+float friction = 0.5
+float elasticity = 0.5
+[float, float, float] vertices
+pymunk.Poly shape
+pymunk.moment_for_poly moment
+pymunk.Body body
+
+set_vertices(float _size)
+move2pos([float, float] _pos)
+draw()
+}
+
+class Rectangle {
+pymunk.Space space
+[float, float] center_pos
+float size = 20
+float mass = 1
+float friction = 0.5
+float elasticity = 0.5
+pymunk.Poly shape
+pymunk.moment_for_poly moment
+pymunk.Body body
+
+move2pos([float, float] _pos)
+draw()
+}
+
+class Circle {
+pymunk.Space space
+[float, float] center_pos
+float radius = 15
+str body_type = 'dynamic'
+[int, int, int] color = [0, 255, 0]
+float density = 0.01
+float elasticity = 1.0
+float friction = 0.9
+pymunk.Circle shape
+pymunk.Body body
+
+move2pos([float, float] _pos)
+draw()
+}
+
+
+class Segment {
+pymunk.Space space
+[float, float] pos_start
+[float, float] pos_end
+float line_thickness = 4
+[int, int, int] color = [255, 255, 255]
+float density = 0.1
+float friction = 0.9
+float elasticity = 0.5
+pymunk.Poly shape
+
+reset_elasticity()
+draw()
+}
+
+class Box {
+pymunk.Space space
+[float, float] pos_start
+[float, float] pos_end
+[[float, float],[float, float],[float, float],[float, float]] edge_coordinates
+[float, float] center_pos
+float line_thickness
+
+draw()
+}
+
+abstract class pyglet.window.Window
+
+class Sandbox implements pyglet.window.Window{
+int width
+int height
+str caption
+bool resizable
+bool fullscreen
+[float, float] cursor_pos
+dict keys_pressed
+int fps
+pymunk.Space space
+float elasticity
+float friction
+Segment ground
+
+update(float _dt)
+on_draw()
+on_mouse_motion(int _x, int _y, int _dx, int _dy)
+on_mouse_press(int _x, int _y, int _button, int _modifiers)
+on_key_press(int _symbol, int _modifiers)
+on_key_release(int _symbol, int _modifiers)
+}
+
+Rectangle <|-- Sandbox
+Triangle <|-- Sandbox
+Circle <|-- Sandbox
+Segment <|-- Sandbox
+Box <|-- Sandbox
+
+@enduml

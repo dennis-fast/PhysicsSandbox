@@ -3,12 +3,6 @@ import pymunk
 
 from physics_engine.circle import Circle
 
-#import os, sys
-
-#currentdir = os.path.dirname(os.path.realpath(__file__))
-#parentdir = os.path.dirname(currentdir)
-#sys.path.append(parentdir)
-
 
 class TestCircle(unittest.TestCase):
 

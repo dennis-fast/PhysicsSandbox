@@ -1,0 +1,31 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+
+title Use Case of the App PhysicsSandbox
+
+left to right direction
+actor User as g
+
+package PhysicsSandbox {
+ usecase (Start App)
+ usecase (Create Object)
+ usecase (Modify Object)
+ usecase (Move Object)
+ usecase (Start Simulation)
+ usecase (Start Evaluation)
+ usecase (Create Report)
+ usecase (Change Scene Parameters)
+ usecase (Save Scene)
+}
+
+g --> (Start App)
+g --> (Create Object)
+g --> (Modify Object)
+g --> (Move Object)
+g --> (Start Simulation)
+g --> (Start Evaluation)
+g --> (Create Report)
+g --> (Change Scene Parameters)
+g --> (Save Scene)
+
+@enduml

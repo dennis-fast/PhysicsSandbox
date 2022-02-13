@@ -1,0 +1,49 @@
+WARNING: '.' not a valid package name; please use only .-separated package names in setup.py
+running clean
+'build\lib' does not exist -- can't clean it
+'build\bdist.win-amd64' does not exist -- can't clean it
+'build\scripts-3.8' does not exist -- can't clean it
+running bdist_wheel
+running build
+running build_py
+installing to build\bdist.win-amd64\wheel
+running install
+running install_lib
+copying build\lib\main.py -> build\bdist.win-amd64\wheel\.
+copying build\lib\physics_engine\box.py -> build\bdist.win-amd64\wheel\.\physics_engine
+copying build\lib\physics_engine\circle.py -> build\bdist.win-amd64\wheel\.\physics_engine
+copying build\lib\physics_engine\rectangle.py -> build\bdist.win-amd64\wheel\.\physics_engine
+copying build\lib\physics_engine\segment.py -> build\bdist.win-amd64\wheel\.\physics_engine
+copying build\lib\physics_engine\triangle.py -> build\bdist.win-amd64\wheel\.\physics_engine
+copying build\lib\physics_engine\__init__.py -> build\bdist.win-amd64\wheel\.\physics_engine
+copying build\lib\sandbox.py -> build\bdist.win-amd64\wheel\.
+copying build\lib\__init__.py -> build\bdist.win-amd64\wheel\.
+running install_egg_info
+running egg_info
+writing PhysicsSandbox.egg-info\PKG-INFO
+writing dependency_links to PhysicsSandbox.egg-info\dependency_links.txt
+writing namespace_packages to PhysicsSandbox.egg-info\namespace_packages.txt
+writing requirements to PhysicsSandbox.egg-info\requires.txt
+writing top-level names to PhysicsSandbox.egg-info\top_level.txt
+reading manifest file 'PhysicsSandbox.egg-info\SOURCES.txt'
+running install_scripts
+creating build\bdist.win-amd64\wheel\PhysicsSandbox-1.0.dev0.dist-info\WHEEL
+creating 'dist\PhysicsSandbox-1.0.dev0-py3-none-any.whl' and adding 'build\bdist.win-amd64\wheel' to it
+adding '__init__.py'
+adding 'main.py'
+adding 'sandbox.py'
+adding 'physics_engine/__init__.py'
+adding 'physics_engine/box.py'
+adding 'physics_engine/circle.py'
+adding 'physics_engine/rectangle.py'
+adding 'physics_engine/segment.py'
+adding 'physics_engine/triangle.py'
+adding 'PhysicsSandbox-1.0.dev0.dist-info/METADATA'
+adding 'PhysicsSandbox-1.0.dev0.dist-info/WHEEL'
+adding 'PhysicsSandbox-1.0.dev0.dist-info/namespace_packages.txt'
+adding 'PhysicsSandbox-1.0.dev0.dist-info/top_level.txt'
+adding 'PhysicsSandbox-1.0.dev0.dist-info/zip-safe'
+adding 'PhysicsSandbox-1.0.dev0.dist-info/RECORD'
+removing build\bdist.win-amd64\wheel
+c:\users\thefastfamily\nextcloud\beuth-myhome\m02 advanced softwareengineering\04 projects\sandbox_pycharm\.pybuilder\plugins\cpython-3.8.0.final.0\lib\site-packages\setuptools\command\install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+  warnings.warn(

@@ -1,0 +1,70 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+
+start
+:initialize Sandbox;
+:set window screen width, screen height, captions;
+
+if (window resizable?) then (true)
+:resizable window;
+else (false)
+:not resizable window;
+endif
+
+if (fullscreen?) then (true)
+:fullscreen;
+else (false)
+:window;
+endif
+
+:set draw options;
+
+if (mouse visible?) then (true)
+:set mouse visible;
+else (false)
+:set mouse not visible;
+endif
+
+:initialize cursor position;
+:initialize dictionary with keys pressed;
+:FPS = 120;
+:initialize internal pyglet clock;
+:initialize space;
+:initialize space.gravity;
+:initialize elasticity;
+:initialize friction;
+
+:create scene ground;
+
+:START EVENT HANDLER;
+repeat
+  switch (on_any_event)
+      case (on_mouse_press == true)
+          switch (on_mouse_press)
+            case ( _button == mouse.LEFT )
+              :spawn Rectangle;
+            case ( _button == mouse.RIGHT )
+              :spawn Circle;
+          endswitch
+      case (on_key_press == true)
+          switch (on_key_press)
+            case ( _symbol == key.SPACE )
+              :add SPACE to keys_pressed;
+              :spawn Triangle;
+
+          endswitch
+
+      case (on_key_release == true)
+        switch (on_key_release)
+            case (_symbol == key.SPACE)
+                if (SPACE in keys_pressed?) then (true)
+                  :delete SPACE from keys_pressed;
+                  endif
+        endswitch
+
+  endswitch
+repeat while (window closed?) is (no)
+->yes;
+stop
+
+@enduml

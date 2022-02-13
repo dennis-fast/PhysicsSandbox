@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="triangle_tests.TestTriangle-20220211173841" tests="2" file="triangle_tests.py" time="0.002" timestamp="2022-02-11T17:38:41" failures="0" errors="0" skipped="0">
+	<testcase classname="triangle_tests.TestTriangle" name="test_draw" time="0.001" timestamp="2022-02-11T17:38:41"/>
+	<testcase classname="triangle_tests.TestTriangle" name="test_move2pos" time="0.001" timestamp="2022-02-11T17:38:41"/>
+</testsuite>

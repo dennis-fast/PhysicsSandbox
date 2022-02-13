@@ -1,14 +1,14 @@
 import pymunk
 
+
 class Rectangle():
     def __init__(self,
                  space: pymunk.Space,
                  center_pos: (float, float),
-                 size: float=20,
-                 mass: float=1,
-                 friction: float=0.5,
-                 elasticity: float=0.5):
-
+                 size: float = 20,
+                 mass: float = 1,
+                 friction: float = 0.5,
+                 elasticity: float = 0.5):
         self.space = space
         self.center_pos = center_pos
         self.size = size
@@ -17,7 +17,7 @@ class Rectangle():
         self.elasticity = elasticity
 
         self.shape = pymunk.Poly.create_box(body=None,
-                                            size=(self.size,self.size))
+                                            size=(self.size, self.size))
 
         self.moment = pymunk.moment_for_poly(mass=self.mass,
                                              vertices=self.shape.get_vertices())
